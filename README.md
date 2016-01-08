@@ -18,4 +18,6 @@ Tips and Tricks for configuration, installation, etc
 
 ### Locate the Hive table data location
 
-```$ hive -S -e "describe formatted <tablename> ;" | grep 'Location' | awk '{ print $NF }'
+``` 
+$ hive -S -e "describe formatted <tablename> ;" | grep 'Location' | awk '{ print $NF }'
+```
