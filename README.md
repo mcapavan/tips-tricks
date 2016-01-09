@@ -1,7 +1,7 @@
 # tips-tricks
 Tips and Tricks for configuration, installation, etc
 
-## Maven Installation
+### Maven Installation
 
 1. git clone https://github.com/mcapavan/tips-tricks.git
 2. cd tips-tricks/install
@@ -9,7 +9,7 @@ Tips and Tricks for configuration, installation, etc
 4. ./install-maven.sh
 
  
-## Java Installation
+### Java Installation
 
 1. git clone https://github.com/mcapavan/tips-tricks.git
 2. cd tips-tricks/install
@@ -20,4 +20,10 @@ Tips and Tricks for configuration, installation, etc
 
 ``` 
 $ hive -S -e "describe formatted <tablename> ;" | grep 'Location' | awk '{ print $NF }'
+```
+
+### How to find HDFS file / directory size
+
+```
+$ hadoop fs -du -s -h /apps/hive/warehouse/flightdb.db/flight_events/event=arrival
 ```
