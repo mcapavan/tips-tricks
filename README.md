@@ -8,7 +8,7 @@ Tips and Tricks for configuration, installation, etc
 3. ./download.sh
 4. ./install-maven.sh
 
- 
+
 ### Java Installation
 
 1. git clone https://github.com/mcapavan/tips-tricks.git
@@ -18,7 +18,7 @@ Tips and Tricks for configuration, installation, etc
 
 ### Locate the Hive table data location
 
-``` 
+```
 $ hive -S -e "describe formatted <tablename> ;" | grep 'Location' | awk '{ print $NF }'
 ```
 
@@ -27,3 +27,6 @@ $ hive -S -e "describe formatted <tablename> ;" | grep 'Location' | awk '{ print
 ```
 $ hadoop fs -du -s -h /apps/hive/warehouse/flightdb.db/flight_events/event=arrival
 ```
+
+### Debug any commands in real-time in the console
+HADOOP_ROOT_LOGGER="DEBUG,console" hdfs dfs -tail SOMEFILE
