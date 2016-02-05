@@ -40,3 +40,9 @@ To stop tracking a file you need to remove it from the index. This can be achiev
 git rm --cached <file>
 ```
 The removal of the file from the head revision will happen on the next commit.
+
+### Locate the Maven dependencies you're missing
+
+```
+mvn dependency::tree
+```
