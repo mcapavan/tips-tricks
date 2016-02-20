@@ -46,3 +46,21 @@ The removal of the file from the head revision will happen on the next commit.
 ```
 mvn dependency::tree
 ```
+
+### Avoiding “add jar” to load custom SerDe
+Refer https://analyticsanvil.wordpress.com/2015/06/21/avoiding-add-jar-to-load-custom-serde-when-using-excel-or-beeswax-on-hortonworks-hadoop/
+
+Step1: Load the SerDe JAR file to a location on the local filesystem of the Hadoop node running the Hiveserver2
+
+Step2: Add this line to the end of hive-env.sh:
+export HIVE_AUX_JARS_PATH=${HIVE_AUX_JARS_PATH}:/home/hive/json-serde-1.3-jar-with-dependencies.jar
+
+Step3: Add this config to the custom hive-site.xml file:
+hive.aux.jars.path = file:///home/hive/json-serde-1.3-jar-with-dependencies.jar (or the custom SerDe)
+
+Step4: Restart Hive components.
+
+### Find services and port numbers used in xOS:
+```
+$ netstat -anp tcp | grep 3000
+```
