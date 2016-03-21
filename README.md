@@ -60,7 +60,24 @@ hive.aux.jars.path = file:///home/hive/json-serde-1.3-jar-with-dependencies.jar 
 
 Step4: Restart Hive components.
 
+if not, use below by adding jar file while executing the hive query.
+
+```
+  hive -e "ADD JAR /root/Hive-Json-Serde/json-serde-1.3.8-SNAPSHOT-jar-with-dependencies.jar; LOAD DATA LOCAL INPATH '~/Downloads/all_tweets.json' OVERWRITE INTO TABLE tweets;"
+```
+
+
 ### Find services and port numbers used in xOS:
 ```
 $ netstat -anp tcp | grep 3000
 ```
+### Error while transferring twitter data - hosebird-client-0 Error connecting w/ status code - 401, reason - Authorization Required
+ref: https://vandannguyen.wordpress.com/2014/12/02/twitter-error-connecting-w-status-code-401-reason-authorization-required/
+```
+sudo yum install ntp
+sudo ntpdate pool.ntp.org
+```
+
+### Kafka to hdfs
+
+https://github.com/rohanswaroop/hadoop-consumer
