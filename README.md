@@ -8,6 +8,23 @@ Tips and Tricks for configuration, installation, etc
 3. ./download.sh
 4. ./install-maven.sh
 
+**Alternative options**
+
+ref: https://www.vultr.com/docs/how-to-install-apache-maven-3-5-on-centos-7
+
+*get the latest maven version from http://maven.apache.org/download.cgi*
+```
+cd /tmp
+wget http://mirror.jax.hugeserver.com/apache/maven/maven-3/3.5.3/binaries/apache-maven-3.5.3-bin.tar.gz
+tar -zxvf apache-maven-3.5.3-bin.tar.gz
+
+sudo mv ~/apache-maven-3.5.3 /opt
+sudo chown -R root:root /opt/apache-maven-3.5.3
+sudo ln -s /opt/apache-maven-3.5.0 /opt/apache-maven
+echo 'export PATH=$PATH:/opt/apache-maven/bin' | sudo tee -a /etc/profile
+source /etc/profile
+mvn --version
+```
 
 ### Java Installation
 
