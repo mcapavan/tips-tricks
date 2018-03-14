@@ -20,9 +20,9 @@ tar -zxvf apache-maven-3.5.3-bin.tar.gz
 
 sudo mv ~/apache-maven-3.5.3 /opt
 sudo chown -R root:root /opt/apache-maven-3.5.3
-sudo ln -s /opt/apache-maven-3.5.0 /opt/apache-maven
-echo 'export PATH=$PATH:/opt/apache-maven/bin' | sudo tee -a /etc/profile
-source /etc/profile
+sudo ln -s /opt/apache-maven-3.5.3 /opt/apache-maven
+echo 'export PATH=$PATH:/opt/apache-maven/bin' | sudo tee -a /etc/bashrc
+source /etc/bashrc
 mvn --version
 ```
 
